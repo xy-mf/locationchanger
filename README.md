@@ -6,7 +6,7 @@ based on the name of Wi-Fi network and runs arbitrary scrips when it happens.
 ## Installation & Update
 
 ```
-curl -L https://github.com/eprev/locationchanger/raw/master/locationchanger.sh | bash
+curl -L https://github.com/xy-mf/locationchanger/raw/master/locationchanger.sh | bash
 ```
 
 It will ask you for a root password to install `locationchanger` to the _/usr/local/bin_ directory.
