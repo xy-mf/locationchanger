@@ -9,7 +9,7 @@ based on the name of Wi-Fi network and runs arbitrary scrips when it happens.
 curl -L https://github.com/eprev/locationchanger/raw/master/locationchanger.sh | bash
 ```
 
-It will ask you for a root password to install `locationchanger` to the */usr/local/bin* directory.
+It will ask you for a root password to install `locationchanger` to the _/usr/local/bin_ directory.
 
 ## Basic usage
 
@@ -20,7 +20,7 @@ if you connect to that wireless network. And if you connect to the Wi-Fi network
 don’t have a location for, then the location will change to the default one (“Automatic”).
 
 If you want to run a script every time you connect to a specific Wi-Fi network, then put
-those scripts in *~/.locations* and name them after Wi-Fi networks (making sure you set
+those scripts in _~/.locations_ and name them after Wi-Fi networks (making sure you set
 corresponding network locations). For instance, you have a script that changes security
 preferences when you connect to the “Corp Wi-Fi” network:
 
@@ -32,8 +32,8 @@ exec 2>&1
 osascript -e 'tell application "System Events" to set require password to wake of security preferences to true'
 ```
 
-Then name this script as *~/.locations/Corp Wi-Fi*. And you might want to create
-*~/.locations/Automatic* that will reset those changes:
+Then name this script as _~/.locations/Corp Wi-Fi_. And you might want to create
+_~/.locations/Automatic_ that will reset those changes:
 
 ```bash
 #!/usr/bin/env bash
@@ -45,7 +45,7 @@ osascript -e 'tell application "System Events" to set require password to wake o
 
 ## Aliasing
 
-If you want to share one network location between different wireless networks (for instance, you have a wireless router which broadcasts on 2.4 and 5GHz bands simultaneously), then you can create a configuration file *~/.locations/locations.conf* (plain text file with simple key-value pairs, no spaces in between):
+If you want to share one network location between different wireless networks (for instance, you have a wireless router which broadcasts on 2.4 and 5GHz bands simultaneously), then you can create a configuration file _~/.locations/locations.conf_ (plain text file with simple key-value pairs, no spaces in between):
 
 ```bash
 Wi-Fi_5GHz=Wi-Fi
@@ -68,4 +68,30 @@ Connected to 'Wi-Fi_5GHz'
 Will switch the location to 'Wi-Fi' (configuration file)
 Changing the location to 'Wi-Fi'
 Running '~/.locations/Wi-Fi'
+```
+
+## uninstall
+
+1. Unload and remove launch agent
+```bash
+launchctl unload -w ~/Library/LaunchAgents/LocationChanger.plist
+
+rm ~/Library/LaunchAgents/LocationChanger.plist
+```
+
+
+2. Remove locationchanger binary
+
+```bash
+sudo rm /usr/local/bin/locationchanger
+```
+3. Remove config
+
+```bash
+rm ~/.locations/locations.conf
+```
+4. Remove logs
+
+```bash
+rm ~/Library/Logs/LocationChanger.log
 ```
