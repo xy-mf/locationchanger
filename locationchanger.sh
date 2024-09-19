@@ -83,7 +83,7 @@ cat > $PLIST_NAME << EOT
 <plist version="1.0">
 <dict>
     <key>Label</key>
-    <string>org.eprev.locationchanger</string>
+    <string>org.mufeng.locationchanger</string>
     <key>ProgramArguments</key>
     <array>
         <string>/usr/local/bin/locationchanger</string>

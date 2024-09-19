@@ -72,25 +72,28 @@ Running '~/.locations/Wi-Fi'
 
 ## uninstall
 
-1. Unload and remove launch agent
+1. unload 
 ```bash
 launchctl unload -w ~/Library/LaunchAgents/LocationChanger.plist
+```
 
+2. Unload and remove launch agent
+```bash
 rm ~/Library/LaunchAgents/LocationChanger.plist
 ```
 
 
-2. Remove locationchanger binary
+3. Remove locationchanger binary
 
 ```bash
 sudo rm /usr/local/bin/locationchanger
 ```
-3. Remove config
+4. Remove config
 
 ```bash
 rm ~/.locations/locations.conf
 ```
-4. Remove logs
+5. Remove logs
 
 ```bash
 rm ~/Library/Logs/LocationChanger.log
