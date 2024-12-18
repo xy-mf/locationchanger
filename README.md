@@ -3,14 +3,6 @@
 It automatically changes OS X’s [network location](https://support.apple.com/en-us/HT202480)
 based on the name of Wi-Fi network and runs arbitrary scrips when it happens.
 
-## Installation & Update
-
-```
-curl -L https://github.com/xy-mf/locationchanger/raw/master/locationchanger.sh | bash
-```
-
-It will ask you for a root password to install `locationchanger` to the _/usr/local/bin_ directory.
-
 ## Basic usage
 
 You have to name network locations after Wi-Fi networks. Let’s say, you need to have
@@ -70,31 +62,26 @@ Changing the location to 'Wi-Fi'
 Running '~/.locations/Wi-Fi'
 ```
 
+## Installation
+
+You can install `locationchanger` in two ways:
+
+**1. Local install** 
+- clone this repo
+- run `local-install.sh`
+
+```sh
+chmod +x ./install.sh && ./install.sh
+```
+
+**2. Remote install**  
+
+```sh
+curl -L https://github.com/xy-mf/locationchanger/raw/master/remote-install.sh | bash
+```
+
+It will ask you for a root password to install `locationchanger` to the _/usr/local/bin_ directory.
+
 ## uninstall
 
-1. unload 
-```bash
-launchctl unload -w ~/Library/LaunchAgents/LocationChanger.plist
-```
-
-2. Unload and remove launch agent
-```bash
-rm ~/Library/LaunchAgents/LocationChanger.plist
-```
-
-
-3. Remove locationchanger binary
-
-```bash
-sudo rm /usr/local/bin/locationchanger
-```
-4. Remove config
-
-```bash
-rm ~/.locations/locations.conf
-```
-5. Remove logs
-
-```bash
-rm ~/Library/Logs/LocationChanger.log
-```
+use `uninstall.sh` to uninstall `locationchanger`

@@ -1,0 +1,10 @@
+# This is a sample file for creating the text file "locations.config" which associates location names with Wi-Fi names.
+#
+# If you want to share one network location across different wireless networks (for instance, if you have a wireless router that broadcasts on both 2.4GHz and 5GHz bands simultaneously),
+# use a plain text file with simple key-value pairs, without spaces in between.
+# The keys are the wireless network names, and the values are the desired location names.
+#
+# WIFI=LOCATION
+#
+# For example:
+# Wi-Fi_5GHz=Wi-Fi
