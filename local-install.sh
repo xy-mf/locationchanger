@@ -13,7 +13,7 @@ cp ./core/locations.conf.sample $CONFIG_DIR/locations.conf
 
 sudo mkdir -p $INSTALL_DIR
 sudo cp ./core/locationchanger.sh $SCRIPT_PATH
-chmod +x $SCRIPT_PATH
+sudo chmod +x $SCRIPT_PATH
 
 mkdir -p $LAUNCH_AGENTS_DIR
 cp ./core/LocationChanger.plist $PLIST_PATH

@@ -15,7 +15,7 @@ curl -L $RAW_SCRIPT_URL/locations.conf.sample -o $CONFIG_DIR/locations.conf
 
 sudo mkdir -p $INSTALL_DIR
 sudo curl -L $RAW_SCRIPT_URL/core/locationchanger.sh -o $SCRIPT_PATH
-chmod +x $SCRIPT_PATH
+sudo chmod +x $SCRIPT_PATH
 
 mkdir -p $LAUNCH_AGENTS_DIR
 curl -L $RAW_SCRIPT_URL/core/LocationChanger.plist -o $PLIST_PATH
