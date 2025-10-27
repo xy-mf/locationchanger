@@ -60,7 +60,12 @@ getSSID() {
     if is-at-least "$osVersion" "15.7"; then
         wirelessInterface=$(networksetup -listnetworkserviceorder | sed -En 's/^\(Hardware Port: (Wi-Fi|AirPort), Device: (en.)\)$/\2/p')
         preferredWirelessNetworks=$(networksetup -listpreferredwirelessnetworks "${wirelessInterface}")
-        SSID=$(echo "$preferredWirelessNetworks" | head -1 | awk '{$1=$1;print}')  # 获取第一个首选网络
+        # 提取首选WiFi网络列表中的第一个SSID
+        # 使用grep排除可能存在的标题行，兼容：
+        # - macOS 26版本：输出包含"Preferred networks on en0:"标题
+        # - macOS 15.7 版本：直接输出网络列表，无标题行
+        # head -1 获取第一行，awk去除首尾空格确保格式整洁
+        SSID=$(echo "$preferredWirelessNetworks" | grep -v "Preferred networks" | head -1 | awk '{$1=$1;print}')
 
     # macOS 15.6+
     elif is-at-least "$osVersion" "15.6"; then
